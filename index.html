@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE TRUST | Sovereign Network</title>
+    <meta name="description" content="Authorized Access Only. The private network for Architects of Reality.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        void: '#020202',
+                        obsidian: '#0A0A0A',
+                        gold: '#D4AF37',
+                        'gold-dim': '#6d5a1c',
+                        ash: '#555555',
+                        mist: '#333333'
+                    },
+                    fontFamily: {
+                        serif: ['Cinzel', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace'],
+                    },
+                    backgroundImage: {
+                        'noise': "url('data:image/svg+xml,%3Csvg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cfilter id=\"noiseFilter\"%3E%3CfeTurbulence type=\"fractalNoise\" baseFrequency=\"0.8\" numOctaves=\"3\" stitchTiles=\"stitch\"/%3E%3C/filter%3E%3Crect width=\"100%25\" height=\"100%25\" filter=\"url(%23noiseFilter)\" opacity=\"0.04\"/%3E%3C/svg%3E')",
+                        'gold-gradient': 'linear-gradient(to bottom right, #D4AF37, #8A7120)',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'scan': 'scan 4s linear infinite',
+                    },
+                    keyframes: {
+                        scan: {
+                            '0%': { transform: 'translateY(-100%)' },
+                            '100%': { transform: 'translateY(100%)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #020202;
+            color: #e5e5e5;
+        }
+        
+        /* The Vault Door Effect */
+        .vault-border {
+            position: relative;
+        }
+        .vault-border::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            pointer-events: none;
+        }
+        .vault-border::after {
+            content: '';
+            position: absolute;
+            top: -1px; left: 50%; transform: translateX(-50%);
+            width: 100px; height: 1px;
+            background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+        }
+
+        /* Gold Text Shine */
+        .text-gold-shine {
+            background: linear-gradient(to right, #8A7120 0%, #D4AF37 50%, #8A7120 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 200% auto;
+            animation: shine 8s linear infinite;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        /* Subtle Grid Background */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        }
+
+        /* Button Hover Glow */
+        .btn-gold {
+            background: linear-gradient(45deg, #D4AF37, #B59022);
+            transition: all 0.4s ease;
+        }
+        .btn-gold:hover {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .input-field {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .input-field:focus {
+            border-color: #D4AF37;
+            background: rgba(212, 175, 55, 0.05);
+            outline: none;
+        }
+    </style>
+</head>
+<body class="h-screen w-full flex items-center justify-center bg-void bg-noise overflow-hidden relative selection:bg-gold selection:text-black">
+
+    <!-- Ambient Background Elements -->
+    <div class="absolute inset-0 bg-grid z-0 pointer-events-none"></div>
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-lg h-[500px] bg-gold/5 blur-[150px] rounded-full pointer-events-none"></div>
+    
+    <!-- Corner Accents -->
+    <div class="fixed top-8 left-8 w-32 h-32 border-l border-t border-white/5 pointer-events-none"></div>
+    <div class="fixed bottom-8 right-8 w-32 h-32 border-r border-b border-white/5 pointer-events-none"></div>
+    <div class="fixed top-8 right-8 font-mono text-[10px] text-ash tracking-widest opacity-50">SECURE_CONNECTION // ENCRYPTED</div>
+    <div class="fixed bottom-8 left-8 font-mono text-[10px] text-ash tracking-widest opacity-50">LAT: 48.8566 / LON: 2.3522</div>
+
+    <!-- Main Container -->
+    <main class="relative z-10 w-full max-w-md px-6">
+        
+        <!-- The Seal / Logo -->
+        <div class="flex flex-col items-center mb-12">
+            <div class="w-16 h-16 border border-gold/30 rounded-full flex items-center justify-center mb-6 relative group cursor-default">
+                <div class="absolute inset-0 rounded-full border border-gold/10 animate-ping opacity-20"></div>
+                <span class="font-serif text-2xl text-gold font-bold">H+</span>
+                <!-- Seal Detail -->
+                <div class="absolute -bottom-2 bg-void px-2">
+                    <i data-lucide="lock" class="w-3 h-3 text-gold/60"></i>
+                </div>
+            </div>
+            
+            <h1 class="font-serif text-3xl tracking-[0.2em] text-white mb-2 text-center">THE TRUST</h1>
+            <p class="font-mono text-[10px] text-gold tracking-[0.4em] uppercase">Sovereign Network</p>
+        </div>
+
+        <!-- The Portal Card -->
+        <div class="bg-obsidian/80 backdrop-blur-xl border border-white/5 p-8 md:p-10 vault-border shadow-2xl shadow-black">
+            
+            <!-- Status Indicator -->
+            <div class="flex items-center justify-center gap-2 mb-8">
+                <div class="w-1.5 h-1.5 bg-green-500/50 rounded-full animate-pulse"></div>
+                <span class="font-mono text-[9px] text-ash uppercase tracking-widest">System Status: Operational</span>
+            </div>
+
+            <!-- Login Form (Simulated) -->
+            <form class="space-y-5" onsubmit="event.preventDefault();">
+                <div class="space-y-1">
+                    <label class="font-mono text-[10px] text-ash uppercase tracking-widest ml-1">Identity Key</label>
+                    <div class="relative">
+                        <input type="text" class="input-field w-full px-4 py-3 text-sm font-mono text-white placeholder-white/20" placeholder="USR_8829_AX">
+                        <i data-lucide="user" class="absolute right-4 top-3.5 w-4 h-4 text-ash/50"></i>
+                    </div>
+                </div>
+                
+                <div class="space-y-1">
+                    <label class="font-mono text-[10px] text-ash uppercase tracking-widest ml-1">Passphrase</label>
+                    <div class="relative">
+                        <input type="password" class="input-field w-full px-4 py-3 text-sm font-mono text-white placeholder-white/20" placeholder="••••••••••••">
+                        <i data-lucide="key" class="absolute right-4 top-3.5 w-4 h-4 text-ash/50"></i>
+                    </div>
+                </div>
+
+                <button class="w-full btn-gold text-void font-mono text-xs font-bold tracking-[0.2em] uppercase py-4 mt-2">
+                    Access Vault
+                </button>
+            </form>
+
+            <!-- Divider -->
+            <div class="relative my-8">
+                <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-white/5"></div>
+                </div>
+                <div class="relative flex justify-center text-xs">
+                    <span class="bg-obsidian px-2 text-ash font-mono text-[10px]">OR</span>
+                </div>
+            </div>
+
+            <!-- Request Access -->
+            <div class="text-center space-y-4">
+                <p class="font-serif text-white/80 text-sm italic">"We build empires, we do not fight wars."</p>
+                <a href="#" class="inline-block text-gold/80 hover:text-gold text-[10px] font-mono uppercase tracking-widest border-b border-gold/30 pb-0.5 hover:border-gold transition-all">
+                    Request Membership Protocol
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer Metadata -->
+        <div class="mt-12 text-center space-y-2">
+            <div class="flex justify-center items-center gap-4 opacity-30 hover:opacity-60 transition-opacity duration-500">
+                <i data-lucide="shield-check" class="w-4 h-4 text-ash"></i>
+                <i data-lucide="globe" class="w-4 h-4 text-ash"></i>
+                <i data-lucide="cpu" class="w-4 h-4 text-ash"></i>
+            </div>
+            <p class="font-mono text-[9px] text-mist uppercase tracking-widest">
+                &copy; 2025 Human Plus Trust. All Rights Reserved.
+            </p>
+        </div>
+
+    </main>
+
+    <!-- Scanline Overlay -->
+    <div class="fixed inset-0 pointer-events-none z-50 opacity-[0.02] bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.5)_50%)] bg-[length:100%_4px]"></div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
