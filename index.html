@@ -24,8 +24,10 @@
                     colors: {
                         void: '#020202',
                         obsidian: '#0A0A0A',
-                        gold: '#D4AF37',
-                        'gold-dim': '#6d5a1c',
+                        // Rose Gold Palette
+                        gold: '#B88A6E',
+                        'gold-light': '#D4C0AD',
+                        'gold-dim': '#8A5E45',
                         ash: '#555555',
                         mist: '#333333'
                     },
@@ -36,7 +38,7 @@
                     },
                     backgroundImage: {
                         'noise': "url('data:image/svg+xml,%3Csvg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cfilter id=\"noiseFilter\"%3E%3CfeTurbulence type=\"fractalNoise\" baseFrequency=\"0.8\" numOctaves=\"3\" stitchTiles=\"stitch\"/%3E%3C/filter%3E%3Crect width=\"100%25\" height=\"100%25\" filter=\"url(%23noiseFilter)\" opacity=\"0.04\"/%3E%3C/svg%3E')",
-                        'gold-gradient': 'linear-gradient(to bottom right, #D4AF37, #8A7120)',
+                        'gold-gradient': 'linear-gradient(to bottom right, #B88A6E, #8A5E45)',
                     },
                     animation: {
                         'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
@@ -67,7 +69,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            border: 1px solid rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(184, 138, 110, 0.1); /* Rose Gold border */
             pointer-events: none;
         }
         .vault-border::after {
@@ -75,12 +77,12 @@
             position: absolute;
             top: -1px; left: 50%; transform: translateX(-50%);
             width: 100px; height: 1px;
-            background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+            background: linear-gradient(90deg, transparent, #B88A6E, transparent);
         }
 
-        /* Gold Text Shine */
+        /* Rose Gold Text Shine */
         .text-gold-shine {
-            background: linear-gradient(to right, #8A7120 0%, #D4AF37 50%, #8A7120 100%);
+            background: linear-gradient(to right, #8A5E45 0%, #D4C0AD 50%, #8A5E45 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -101,11 +103,11 @@
 
         /* Button Hover Glow */
         .btn-gold {
-            background: linear-gradient(45deg, #D4AF37, #B59022);
+            background: linear-gradient(45deg, #B88A6E, #9E7459);
             transition: all 0.4s ease;
         }
         .btn-gold:hover {
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 0 20px rgba(184, 138, 110, 0.3);
             transform: translateY(-1px);
         }
 
@@ -115,8 +117,8 @@
             transition: all 0.3s ease;
         }
         .input-field:focus {
-            border-color: #D4AF37;
-            background: rgba(212, 175, 55, 0.05);
+            border-color: #B88A6E;
+            background: rgba(184, 138, 110, 0.05);
             outline: none;
         }
     </style>
